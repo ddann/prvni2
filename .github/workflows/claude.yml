@@ -24,4 +24,4 @@ jobs:
       uses: anthropics/claude-code-base-action@main
       with:
         anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        prompt: "You are Claude, an AI assistant integrated with GitHub. Please help with code reviews, answer questions about the codebase, and assist with development tasks. Respond to issues and comments in a helpful and professional manner."
