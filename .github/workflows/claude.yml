@@ -21,7 +21,7 @@ jobs:
     if: github.actor != 'github-actions[bot]'
     steps:
     - name: Claude Assistant
-      uses: anthropics/claude-code-action@v1
+      uses: anthropics/claude-code-base-action@main
       with:
         anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
