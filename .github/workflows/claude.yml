@@ -1,4 +1,5 @@
 name: Claude Assistant
+
 on:
   issue_comment:
     types: [created]
@@ -9,11 +10,18 @@ on:
   pull_request_review:
     types: [submitted]
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
 jobs:
   claude-response:
     runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
     steps:
-    - uses: anthropics/claude-code-action@beta
+    - name: Claude Assistant
+      uses: anthropics/claude-code-action@v1
       with:
         anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
